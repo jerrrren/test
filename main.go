@@ -12,6 +12,7 @@ var db *sql.DB
 func main() {
 	db = setupDatabase()
 	router := gin.Default()
+	router.Use(CORSMiddleware())
 	AuthRoutes(router)
 	UserRoutes(router)
 	router.Run()
