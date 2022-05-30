@@ -14,6 +14,6 @@ func main() {
 	router := gin.Default()
 	AuthRoutes(router)
 	UserRoutes(router)
-	router.Run("localhost:8080")
+	router.Run("intronus.herokuapp.com")
 	defer db.Close()
 }
