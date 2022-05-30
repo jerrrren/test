@@ -1,0 +1,5 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/cheej/Desktop/Orbital/orbital/backend'
+docker build -t my-postgres-db ./
+make: Leaving directory 'c:/Users/cheej/Desktop/Orbital/orbital/backend'
+ 
