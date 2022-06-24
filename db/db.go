@@ -25,10 +25,10 @@ const (
 var DB *sql.DB = setupDatabase()
 
 func setupDatabase() *sql.DB {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+//	err := godotenv.Load(".env")
+//	if err != nil {
+//		log.Fatal("Error loading .env file")
+//	}
 /*
 	var (
 		host     = os.Getenv("HOST")
