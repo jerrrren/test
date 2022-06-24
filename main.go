@@ -1,20 +1,31 @@
 package main
 
 import (
-	"database/sql"
+	"github.com/bojie/orbital/backend/auth"
+	"github.com/bojie/orbital/backend/chat"
+	"github.com/bojie/orbital/backend/db"
+	"github.com/bojie/orbital/backend/pairing"
+	"github.com/bojie/orbital/backend/routerMiddleware"
+	"github.com/bojie/orbital/backend/user"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 )
 
-var db *sql.DB
-
 func main() {
-	db = setupDatabase()
+
+	wsServer := chat.NewWebSocketServer()
+	go wsServer.Run()
+
 	router := gin.Default()
-	router.Use(CORSMiddleware())
-	AuthRoutes(router)
-	UserRoutes(router)
-	router.Run()
-	defer db.Close()
+
+	router.Use(routerMiddleware.CORSMiddleware())
+	auth.AuthRoutes(router)
+	user.UserRoutes(router)
+	pairing.PairingRoutes(router)
+
+	router.GET("/ws", chat.ServeWs(wsServer))
+
+	defer db.DB.Close()
+	router.Run(":8080")
 }

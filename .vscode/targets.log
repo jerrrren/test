@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 30 14:32:20 2022
+# Make data base, printed on Fri Jun 24 22:00:24 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ USERPROFILE = C:\Users\cheej
 # environment
 LOCALAPPDATA = C:\Users\cheej\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-4215192d-ed42-4a08-ab43-321020a3ad3c-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-907e676b-8a17-4d26-807a-f440c9237ead-sock
 # environment
 VSCODE_CWD = C:\Users\cheej\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -41,7 +41,7 @@ GOPATH = C:\Users\cheej\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_13140_DVYWOLZJVRUDVKKL
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_18752_IRJKQFLALFVBJFTW
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -55,7 +55,7 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\cheej\AppData\Roaming\Code\CachedData\c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = C:\Users\cheej\AppData\Roaming\Code\CachedData\30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
 LANG = C
 # default
@@ -95,7 +95,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 13140
+VSCODE_PID = 18752
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -127,7 +127,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python310\Scripts\;C:\Python310\;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files\AdoptOpenJDK\jdk-11.0.9.101-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\MATLAB\R2021a\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\MinGW\bin;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\cheej\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\cheej\AppData\Local\Programs\Python\Python37\;C:\Users\cheej\AppData\Local\Microsoft\WindowsApps;C:\Users\cheej\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\cheej\AppData\Roaming\npm;C:\Users\cheej\go\bin;C:\msys64\mingw64\bin;C:\Users\cheej\AppData\Roaming\TinyTeX\bin\win32;C:\Program Files\heroku\bin
+PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python310\Scripts\;C:\Python310\;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files\AdoptOpenJDK\jdk-11.0.9.101-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\MATLAB\R2021a\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\MinGW\bin;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\cheej\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\cheej\AppData\Local\Programs\Python\Python37\;C:\Users\cheej\AppData\Local\Microsoft\WindowsApps;C:\Users\cheej\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\cheej\AppData\Roaming\npm;C:\Users\cheej\go\bin;C:\msys64\mingw64\bin;C:\Users\cheej\AppData\Roaming\TinyTeX\bin\win32;C:\Program Files\heroku\bin;C:\ProgramData\cheej\GitHubDesktop\bin;C:\Users\cheej\AppData\Local\GitHubDesktop\bin
 # environment
 ZES_ENABLE_SYSMAN = 1
 # environment
@@ -195,7 +195,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\cheej\AppData\Local\Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\e79256b1ce000de844a5805c41116187-1.67.2-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\e79256b1ce000de844a5805c41116187-1.68.1-main-sock
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # default
@@ -221,9 +221,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1653883843): 21 files, no impossibilities.
+# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1656079001): 20 files, no impossibilities.
 
-# 21 files, no impossibilities in 1 directories.
+# 20 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -234,7 +234,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-27 23:24:27
+#  Last modified 2022-06-06 18:12:34
 #  File has been updated.
 #  Successfully updated.
 
@@ -273,12 +273,12 @@ postgres:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 243 B / avg = 9 B
-# current buf: size = 8174 B / used = 243 B / count = 26 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 182 B / avg = 7 B
+# current buf: size = 8174 B / used = 182 B / count = 25 / avg = 7 B
 
-# strcache performance: lookups = 32 / hit rate = 18%
+# strcache performance: lookups = 31 / hit rate = 19%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=1/32=3%
-# Finished Make data base on Mon May 30 14:32:20 2022
+# Load=25/8192=0%, Rehash=0, Collisions=0/31=0%
+# Finished Make data base on Fri Jun 24 22:00:24 2022
 
  

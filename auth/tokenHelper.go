@@ -1,10 +1,11 @@
-package main
+package auth
 
 import (
 	"fmt"
 	"time"
 	"os"
-	
+	"github.com/bojie/orbital/backend/db"
+
 
 	jwt "github.com/dgrijalva/jwt-go"
 	
@@ -73,7 +74,7 @@ func ValidateToken(signedToken string) (claims *SignedDetails,msg string){
 }
 
 func UpdateAllTokens(signedToken string,signedRefreshToken string,userId uint){
-	_, err := db.Exec("UPDATE users SET token = $1, refresh_token = $2 WHERE uid = $3",signedToken, signedRefreshToken,userId)
+	_, err := db.DB.Exec("UPDATE users SET token = $1, refresh_token = $2 WHERE uid = $3",signedToken, signedRefreshToken,userId)
 	if err != nil {
 		panic(err)
 	}
