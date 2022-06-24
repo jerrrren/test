@@ -3,11 +3,11 @@ package db
 import (
 	"database/sql"
 	"fmt"
-	"log"
+//	"log"
 //	"os"
 //	"strconv"
 
-	"github.com/joho/godotenv"
+//	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
