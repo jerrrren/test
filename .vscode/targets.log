@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 24 23:31:28 2022
+# Make data base, printed on Sat Jun 25 13:55:21 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ USERPROFILE = C:\Users\cheej
 # environment
 LOCALAPPDATA = C:\Users\cheej\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-ea0cea42-45d0-4f41-9153-496179d80fe1-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-65d2166a-ce0c-42d9-9344-682c0f0edb20-sock
 # environment
 VSCODE_CWD = C:\Users\cheej\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -41,7 +41,7 @@ GOPATH = C:\Users\cheej\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11536_QIZUFAPLONFWLWNF
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_8704_KWHAGGQQYPJPGGPP
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -95,7 +95,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 11536
+VSCODE_PID = 8704
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -279,6 +279,6 @@ postgres:
 # strcache performance: lookups = 31 / hit rate = 19%
 # hash-table stats:
 # Load=25/8192=0%, Rehash=0, Collisions=0/31=0%
-# Finished Make data base on Fri Jun 24 23:31:28 2022
+# Finished Make data base on Sat Jun 25 13:55:21 2022
 
  

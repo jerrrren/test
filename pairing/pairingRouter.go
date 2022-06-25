@@ -6,10 +6,6 @@ import (
 
 func PairingRoutes(incomingRoutes *gin.Engine) {
 	incomingRoutes.POST("/pairing/registerAdd", AddRegistrationUser())
-	incomingRoutes.POST("/pairing/checkInfo", checkInfo())
-	incomingRoutes.POST("/pairing/fillIndicators", FillIndicators())
-	incomingRoutes.POST("/pairing/match", Match())
-	incomingRoutes.POST("/pairing/addPairedUser", AddPaireduser())
-	incomingRoutes.POST("/pairing/deleteSingleUser", DeleteSingleUser())
-	incomingRoutes.POST("/pairing/deletePairedUser", DeletePairedUser())
+	incomingRoutes.POST("/pairing/ifPaired", checkIfPaired())
+	incomingRoutes.POST("/pairing/fillAndMatch", FillAndMatch())
 }
