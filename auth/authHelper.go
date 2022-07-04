@@ -1,13 +1,14 @@
 package auth
 
 import (
-	"errors"
 	"database/sql"
+	"errors"
+	"fmt"
 	"net/http"
+	"golang.org/x/crypto/bcrypt"
 
-	"github.com/gin-gonic/gin"
 	"github.com/bojie/orbital/backend/db"
-
+	"github.com/gin-gonic/gin"
 )
 
 
@@ -18,6 +19,27 @@ type User struct {
 	User_type     string `json:"user_type" validate:"required, eq=ADMIN|eq=USER"`
 	Refresh_token string `json:"refresh_token"`
 	Token         string `json:"token"`
+}
+
+func HashPassword(password string) string{
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
+	if err!=nil{
+		fmt.Println(err)
+	}
+	return string(bytes)
+}
+
+func VerifyPassword(userPassword string, providedPassword string)(bool, string){
+	err := bcrypt.CompareHashAndPassword([]byte(providedPassword), []byte(userPassword))
+	check := true
+	msg := ""
+
+	if err!= nil {
+		msg = fmt.Sprintf("email of password is incorrect")
+		check=false
+	}
+	
+	return check, msg
 }
 
 func Signup() gin.HandlerFunc {
@@ -37,6 +59,9 @@ func Signup() gin.HandlerFunc {
 		token, refreshToken, _ := GenerateAllTokens(user.Name, user.User_type)
 		user.Token = token
 		user.Refresh_token = refreshToken
+
+		password := HashPassword(user.Password);
+		user.Password = password
 
 		result, err := db.DB.Exec("INSERT INTO users (name,password,refresh_token,token,user_type) VALUES ($1, $2, $3,$4,$5)", user.Name, user.Password, user.Refresh_token, user.Token, user.User_type)
 
@@ -59,7 +84,7 @@ func Login() gin.HandlerFunc {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
-		row := db.DB.QueryRow("SELECT * FROM users WHERE (name = $1 AND password = $2)", user.Name, user.Password)
+		row := db.DB.QueryRow("SELECT * FROM users WHERE (name = $1)", user.Name)
 
 		if err := row.Scan(&foundUser.ID, &foundUser.Name, &foundUser.Password, &foundUser.Token, &foundUser.Refresh_token, &foundUser.User_type); err != nil {
 			if err == sql.ErrNoRows {
@@ -68,6 +93,12 @@ func Login() gin.HandlerFunc {
 			}
 
 			c.IndentedJSON(http.StatusNotFound, gin.H{"message": err.Error()})
+
+			check_password,_ := VerifyPassword(foundUser.Password,user.Password);
+			if(!check_password){
+				c.IndentedJSON(http.StatusNotFound, gin.H{"message": "password or username incorrect error "})
+			}
+
 			return
 		}
 
@@ -77,9 +108,11 @@ func Login() gin.HandlerFunc {
 			return
 		}
 
+
 		UpdateAllTokens(token, refreshToken, foundUser.ID)
 
-		newrow := db.DB.QueryRow("SELECT * FROM users WHERE (name = $1 AND password = $2)", user.Name, user.Password)
+
+		newrow := db.DB.QueryRow("SELECT * FROM users WHERE (name = $1)", user.Name)
 
 		if err := newrow.Scan(&foundUser.ID, &foundUser.Name, &foundUser.Password, &foundUser.Token, &foundUser.Refresh_token, &foundUser.User_type); err != nil {
 			if err == sql.ErrNoRows {
@@ -89,8 +122,25 @@ func Login() gin.HandlerFunc {
 			c.IndentedJSON(http.StatusNotFound, gin.H{"message": err.Error()})
 			return
 		}
-		c.JSON(http.StatusOK, foundUser)
 
+
+
+		type response struct{
+				ID            uint   `json:"uid"`
+				Name          string `json:"username"`
+				User_type     string `json:"user_type" validate:"required, eq=ADMIN|eq=USER"`
+				Refresh_token string `json:"refresh_token"`
+				Token         string `json:"token"`
+		}
+
+		var json_response response;
+		json_response.Name = foundUser.Name
+		json_response.ID = foundUser.ID
+		json_response.Refresh_token = foundUser.Refresh_token
+		json_response.Token = foundUser.Token
+		json_response.User_type = foundUser.User_type
+
+		c.JSON(http.StatusOK, json_response)
 	}
 
 }
