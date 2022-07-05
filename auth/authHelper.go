@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"net/http"
 	"golang.org/x/crypto/bcrypt"
+	"github.com/lib/pq"
+
 
 	"github.com/bojie/orbital/backend/db"
 	"github.com/gin-gonic/gin"
@@ -66,7 +68,14 @@ func Signup() gin.HandlerFunc {
 		result, err := db.DB.Exec("INSERT INTO users (name,password,refresh_token,token,user_type) VALUES ($1, $2, $3,$4,$5)", user.Name, user.Password, user.Refresh_token, user.Token, user.User_type)
 
 		if err != nil {
-			c.IndentedJSON(http.StatusBadRequest, gin.H{"test": err})
+			if error_code, ok := err.(*pq.Error); ok {
+				if(error_code.Code == "23505"){
+					c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "This username is already in use, please choose another one"})
+					return
+				}
+			}
+
+			c.IndentedJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 			return
 		}
 
@@ -88,15 +97,15 @@ func Login() gin.HandlerFunc {
 
 		if err := row.Scan(&foundUser.ID, &foundUser.Name, &foundUser.Password, &foundUser.Token, &foundUser.Refresh_token, &foundUser.User_type); err != nil {
 			if err == sql.ErrNoRows {
-				c.IndentedJSON(http.StatusNotFound, gin.H{"message": "password or username incorrect error " + user.Name + user.Password})
+				c.JSON(http.StatusBadRequest, gin.H{"message": "password or username incorrect"})
 				return
 			}
 
-			c.IndentedJSON(http.StatusNotFound, gin.H{"message": err.Error()})
+			c.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 
 			check_password,_ := VerifyPassword(foundUser.Password,user.Password);
 			if(!check_password){
-				c.IndentedJSON(http.StatusNotFound, gin.H{"message": "password or username incorrect error "})
+				c.JSON(http.StatusBadRequest, gin.H{"message": "password or username incorrect"})
 			}
 
 			return
@@ -104,7 +113,7 @@ func Login() gin.HandlerFunc {
 
 		token, refreshToken, err := GenerateAllTokens(foundUser.Name, foundUser.User_type)
 		if err != nil {
-			c.IndentedJSON(http.StatusNotFound, gin.H{"message": err.Error()})
+			c.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 			return
 		}
 
@@ -116,10 +125,10 @@ func Login() gin.HandlerFunc {
 
 		if err := newrow.Scan(&foundUser.ID, &foundUser.Name, &foundUser.Password, &foundUser.Token, &foundUser.Refresh_token, &foundUser.User_type); err != nil {
 			if err == sql.ErrNoRows {
-				c.IndentedJSON(http.StatusNotFound, gin.H{"message": "password or username incorrect error2"})
+				c.JSON(http.StatusBadRequest, gin.H{"message": "password or username incorrect error"})
 				return
 			}
-			c.IndentedJSON(http.StatusNotFound, gin.H{"message": err.Error()})
+			c.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 			return
 		}
 
