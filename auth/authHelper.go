@@ -103,12 +103,13 @@ func Login() gin.HandlerFunc {
 
 			c.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 
-			check_password,_ := VerifyPassword(foundUser.Password,user.Password);
+			return
+		}
+
+		check_password,_ := VerifyPassword(user.Password,foundUser.Password);
 			if(!check_password){
 				c.JSON(http.StatusBadRequest, gin.H{"message": "password or username incorrect"})
-			}
-
-			return
+				return 
 		}
 
 		token, refreshToken, err := GenerateAllTokens(foundUser.Name, foundUser.User_type)
