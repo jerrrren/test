@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 22 09:42:47 2022
+# Make data base, printed on Fri Jul 22 10:43:12 2022
 
 # Variables
 
@@ -211,9 +211,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1657013170): 20 files, no impossibilities.
+# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1658454716): 21 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
+# 21 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -261,14 +261,15 @@ postgres:
 
 # No 'vpath' search paths.
 
-# No general ('VPATH' variable) search path.
+# No general ('VPATH' variable) search pat 
+h.
 
-# strcache buffers: 1 (0) / strings = 25 / storage = 182 B / avg = 7 B
-# current buf: size = 8174 B / used = 182 B / count = 25 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 26 / storage = 188 B / avg = 7 B
+# current buf: size = 8174 B / used = 188 B / count = 26 / avg = 7 B
 
-# strcache performance: lookups = 31 / hit rate = 19%
+# strcache performance: lookups = 32 / hit rate = 18%
 # hash-table stats:
-# Load=25/8192=0%, Rehash=0, Collisions=0/31=0%
-# Finished Make data base on Fri Jul 22 09:42:47 2022
+# Load=26/8192=0%, Rehash=0, Collisions=0/32=0%
+# Finished Make data base on Fri Jul 22 10:43:12 2022
 
  

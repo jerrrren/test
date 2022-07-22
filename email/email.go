@@ -114,10 +114,10 @@ func getVerified() gin.HandlerFunc {
 		var verified bool
 		if err := row.Scan(&verified);err != nil{
 			if err == sql.ErrNoRows {
-				c.IndentedJSON(http.StatusNotFound, gin.H{"message": "no row"})
+				c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "no row"})
 				return
 			}
-			c.IndentedJSON(http.StatusNotFound, gin.H{"message": err.Error()})
+			c.IndentedJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 			return
 		}
 
