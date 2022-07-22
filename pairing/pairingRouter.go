@@ -5,7 +5,6 @@ import (
 )
 
 func PairingRoutes(incomingRoutes *gin.Engine) {
-	incomingRoutes.POST("/pairing/registerAdd", AddRegistrationUser())
 	incomingRoutes.POST("/pairing/ifPaired", checkIfPaired())
 	incomingRoutes.POST("/pairing/fillAndMatch", FillAndMatch())
 }

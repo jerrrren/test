@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 22 10:43:12 2022
+# Make data base, printed on Fri Jul 22 15:24:25 2022
 
 # Variables
 
@@ -39,7 +39,7 @@ GOPATH = C:\Users\cheej\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_30928_EHQQTMFQSMPFOQCR
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_24256_AYMTCSIXATBBMTCS
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -87,7 +87,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 30928
+VSCODE_PID = 24256
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -211,7 +211,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1658454716): 21 files, no impossibilities.
+# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1658474338): 21 files, no impossibilities.
 
 # 21 files, no impossibilities in 1 directories.
 
@@ -270,6 +270,6 @@ h.
 # strcache performance: lookups = 32 / hit rate = 18%
 # hash-table stats:
 # Load=26/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Fri Jul 22 10:43:12 2022
+# Finished Make data base on Fri Jul 22 15:24:25 2022
 
  
