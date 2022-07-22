@@ -37,6 +37,7 @@ func GetUserNames() gin.HandlerFunc {
 
 			userNames = append(userNames, userName)
 		}
+		
 		c.IndentedJSON(http.StatusOK, userNames)
 		defer rows.Close()
 
@@ -48,6 +49,7 @@ func GetUserNames() gin.HandlerFunc {
  
 func GetUsers() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		
 		if err := auth.CheckUserType(c, "ADMIN"); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
@@ -55,7 +57,7 @@ func GetUsers() gin.HandlerFunc {
 
 		var users []auth.User
 
-		rows, err := db.DB.Query("SELECT * FROM users")
+		rows, err := db.DB.Query("SELECT uid,name,password,token,refresh_token,user_type FROM users")
 		if err != nil {
 			c.IndentedJSON(http.StatusNotFound, gin.H{"message": "error"})
 			return
@@ -82,7 +84,7 @@ func GetUser() gin.HandlerFunc {
 		uid := c.Param("user_id")
 		var user auth.User
 
-		row := db.DB.QueryRow("SELECT * FROM users WHERE uid = $1", uid)
+		row := db.DB.QueryRow("SELECT uid,name,password,token,refresh_token,user_type FROM users WHERE uid = $1", uid)
 
 		if err := row.Scan(&user.ID, &user.Name, &user.Password, &user.Token, &user.Refresh_token, &user.User_type); err != nil {
 			if err == sql.ErrNoRows {

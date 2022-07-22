@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul 05 17:26:00 2022
+# Make data base, printed on Fri Jul 22 09:42:47 2022
 
 # Variables
 
@@ -23,9 +23,7 @@ USERPROFILE = C:\Users\cheej
 # environment
 LOCALAPPDATA = C:\Users\cheej\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-b26fb843-dc0e-416a-ac9b-eb3eb57c4b7a-sock
-# environment
-VSCODE_CWD = C:\Users\cheej\AppData\Local\Programs\Microsoft VS Code
+VSCODE_CWD = C:\WINDOWS\System32
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
@@ -41,7 +39,7 @@ GOPATH = C:\Users\cheej\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_19324_PEQJTRKKSMCYLELS
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_30928_EHQQTMFQSMPFOQCR
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -50,12 +48,10 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 %D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
 # automatic
 ^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
-# environment
-VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\cheej\AppData\Roaming\Code\CachedData\30d9c6cd9483b2cc586687151bcbcd635f373630
+VSCODE_CODE_CACHE_PATH = C:\Users\cheej\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LANG = C
 # default
@@ -72,8 +68,6 @@ MAKEFLAGS = pqrR
 ONEDRIVE = C:\Users\cheej\OneDrive
 # makefile
 CURDIR := c:/Users/cheej/Desktop/New folder/test
-# environment
-VSCODE_PIPE_LOGGING = true
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
@@ -93,9 +87,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-VSCODE_PID = 19324
+VSCODE_PID = 30928
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -143,8 +135,6 @@ CHOCOLATEYLASTPATHUPDATE = 132794275482942044
 # environment
 LOGONSERVER = \\DESKTOP-5U7S1OA
 # environment
-VSCODE_LOG_NATIVE = false
-# environment
 USERNAME = cheej
 # environment
 COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
@@ -165,7 +155,7 @@ GNUMAKEFLAGS :=
 # environment
 OS = Windows_NT
 # environment
-__COMPAT_LAYER = RunAsAdmin Installer
+__COMPAT_LAYER = RunAsAdmin
 # makefile
 .DEFAULT_GOAL := image
 # default
@@ -195,7 +185,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\cheej\AppData\Local\Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\e79256b1ce000de844a5805c41116187-1.68.1-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\e79256b1ce000de844a5805c41116187-1.69.2-main-sock
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # default
@@ -213,7 +203,7 @@ PROCESSOR_REVISION = a502
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
 # variable set hash-table stats:
-# Load=100/1024=10%, Rehash=0, Collisions=9/127=7%
+# Load=95/1024=9%, Rehash=0, Collisions=8/122=7%
 
 # Pattern-specific Variable Values
 
@@ -221,7 +211,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1656136553): 20 files, no impossibilities.
+# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1657013170): 20 files, no impossibilities.
 
 # 20 files, no impossibilities in 1 directories.
 
@@ -276,10 +266,9 @@ postgres:
 # strcache buffers: 1 (0) / strings = 25 / storage = 182 B / avg = 7 B
 # current buf: size = 8174 B / used = 182 B / count = 25 / avg = 7 B
 
-# strcache performance: lookups = 31 / hit rate = 19% 
-
+# strcache performance: lookups = 31 / hit rate = 19%
 # hash-table stats:
 # Load=25/8192=0%, Rehash=0, Collisions=0/31=0%
-# Finished Make data base on Tue Jul 05 17:26:00 2022
+# Finished Make data base on Fri Jul 22 09:42:47 2022
 
  

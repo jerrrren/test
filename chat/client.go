@@ -120,7 +120,6 @@ func (client *Client) findClientById(id int) []*Client {
 }
 
 func (client *Client) handleNewMessage(jsonMessage []byte) {
-	fmt.Println("handlingprivateMessage")
 
 	var message Message
 	if err := json.Unmarshal(jsonMessage, &message); err != nil {
@@ -143,6 +142,8 @@ func (client *Client) handleNewMessage(jsonMessage []byte) {
 	case SendPrivateMessage:
 		client.handlePrivateMessage(message)
 	}
+	
+	
 
 }
 

@@ -5,14 +5,13 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"golang.org/x/crypto/bcrypt"
-	"github.com/lib/pq"
 
+	"github.com/lib/pq"
+	"golang.org/x/crypto/bcrypt"
 
 	"github.com/bojie/orbital/backend/db"
 	"github.com/gin-gonic/gin"
 )
-
 
 type User struct {
 	ID            uint   `json:"uid"`
@@ -21,26 +20,27 @@ type User struct {
 	User_type     string `json:"user_type" validate:"required, eq=ADMIN|eq=USER"`
 	Refresh_token string `json:"refresh_token"`
 	Token         string `json:"token"`
+	Email         string `json:"email"`
 }
 
-func HashPassword(password string) string{
+func HashPassword(password string) string {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
-	if err!=nil{
+	if err != nil {
 		fmt.Println(err)
 	}
 	return string(bytes)
 }
 
-func VerifyPassword(userPassword string, providedPassword string)(bool, string){
+func VerifyPassword(userPassword string, providedPassword string) (bool, string) {
 	err := bcrypt.CompareHashAndPassword([]byte(providedPassword), []byte(userPassword))
 	check := true
 	msg := ""
 
-	if err!= nil {
+	if err != nil {
 		msg = fmt.Sprintf("email of password is incorrect")
-		check=false
+		check = false
 	}
-	
+
 	return check, msg
 }
 
@@ -62,14 +62,14 @@ func Signup() gin.HandlerFunc {
 		user.Token = token
 		user.Refresh_token = refreshToken
 
-		password := HashPassword(user.Password);
+		password := HashPassword(user.Password)
 		user.Password = password
 
-		result, err := db.DB.Exec("INSERT INTO users (name,password,refresh_token,token,user_type) VALUES ($1, $2, $3,$4,$5)", user.Name, user.Password, user.Refresh_token, user.Token, user.User_type)
+		result, err := db.DB.Exec("INSERT INTO users (name,password,refresh_token,token,user_type,verified,email) VALUES ($1, $2, $3,$4,$5,$6,$7)", user.Name, user.Password, user.Refresh_token, user.Token, user.User_type, false, user.Email)
 
 		if err != nil {
 			if error_code, ok := err.(*pq.Error); ok {
-				if(error_code.Code == "23505"){
+				if error_code.Code == "23505" {
 					c.IndentedJSON(http.StatusBadRequest, gin.H{"message": "This username is already in use, please choose another one"})
 					return
 				}
@@ -83,8 +83,6 @@ func Signup() gin.HandlerFunc {
 	}
 }
 
-
-
 func Login() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var user User
@@ -93,7 +91,7 @@ func Login() gin.HandlerFunc {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
-		row := db.DB.QueryRow("SELECT * FROM users WHERE (name = $1)", user.Name)
+		row := db.DB.QueryRow("SELECT uid,name,password,token,refresh_token,user_type FROM users WHERE (name = $1)", user.Name)
 
 		if err := row.Scan(&foundUser.ID, &foundUser.Name, &foundUser.Password, &foundUser.Token, &foundUser.Refresh_token, &foundUser.User_type); err != nil {
 			if err == sql.ErrNoRows {
@@ -106,10 +104,10 @@ func Login() gin.HandlerFunc {
 			return
 		}
 
-		check_password,_ := VerifyPassword(user.Password,foundUser.Password);
-			if(!check_password){
-				c.JSON(http.StatusBadRequest, gin.H{"message": "password or username incorrect"})
-				return 
+		check_password, _ := VerifyPassword(user.Password, foundUser.Password)
+		if !check_password {
+			c.JSON(http.StatusBadRequest, gin.H{"message": "password or username incorrect"})
+			return
 		}
 
 		token, refreshToken, err := GenerateAllTokens(foundUser.Name, foundUser.User_type)
@@ -118,11 +116,9 @@ func Login() gin.HandlerFunc {
 			return
 		}
 
-
 		UpdateAllTokens(token, refreshToken, foundUser.ID)
 
-
-		newrow := db.DB.QueryRow("SELECT * FROM users WHERE (name = $1)", user.Name)
+		newrow := db.DB.QueryRow("SELECT uid,name,password,token,refresh_token,user_type FROM users WHERE (name = $1)", user.Name)
 
 		if err := newrow.Scan(&foundUser.ID, &foundUser.Name, &foundUser.Password, &foundUser.Token, &foundUser.Refresh_token, &foundUser.User_type); err != nil {
 			if err == sql.ErrNoRows {
@@ -133,17 +129,15 @@ func Login() gin.HandlerFunc {
 			return
 		}
 
-
-
-		type response struct{
-				ID            uint   `json:"uid"`
-				Name          string `json:"username"`
-				User_type     string `json:"user_type" validate:"required, eq=ADMIN|eq=USER"`
-				Refresh_token string `json:"refresh_token"`
-				Token         string `json:"token"`
+		type response struct {
+			ID            uint   `json:"uid"`
+			Name          string `json:"username"`
+			User_type     string `json:"user_type" validate:"required, eq=ADMIN|eq=USER"`
+			Refresh_token string `json:"refresh_token"`
+			Token         string `json:"token"`
 		}
 
-		var json_response response;
+		var json_response response
 		json_response.Name = foundUser.Name
 		json_response.ID = foundUser.ID
 		json_response.Refresh_token = foundUser.Refresh_token
@@ -154,9 +148,6 @@ func Login() gin.HandlerFunc {
 	}
 
 }
-
-
-
 
 func CheckUserType(c *gin.Context, role string) (err error) {
 	userType := c.GetString("user_type")

@@ -48,6 +48,7 @@ func (room *Room) broadcastToClientsInRoom(message []byte) {
 
 const welcomeMessage = "%s joined the room"
 
+
 func (room *Room) notifyClientJoined(client *Client) {
 	message := &Message{
 		Action:  SendMessageAction,
