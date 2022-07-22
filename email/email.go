@@ -91,7 +91,7 @@ func sendVerificationMessage() gin.HandlerFunc {
 		m.SetHeader("Subject", "Intronus email verification")
 
 		// Set E-Mail body. You can set plain text or html with text/html
-		m.SetBody("text/plain", "Please click the link below to verify your email\n"+"https://intronus.herokuapp.com/verifyemail/"+token)
+		m.SetBody("text/plain", "Please click the link below to verify your email\n"+"https://intronusfrontend.herokuapp.com/verifyemail/"+token)
 
 		// Settings for SMTP server
 		d := mail.NewDialer("smtp.gmail.com", 587, "chee_jer_en@s2013.sst.edu.sg", "edplfjwgcyunfdkt")
