@@ -99,7 +99,7 @@ func resetPassword() gin.HandlerFunc {
 
 		password := auth.HashPassword(resetPasswordToken.NewPassword)
 
-		_, err2 := db.DB.Exec("UPDATE users SET password = $1 where name = $3 ", password, claims.Name)
+		_, err2 := db.DB.Exec("UPDATE users SET password = $1 where name = $2 ", password, claims.Name)
 
 		if err2 != nil {
 			c.IndentedJSON(http.StatusBadRequest, gin.H{"message": err2.Error()})
