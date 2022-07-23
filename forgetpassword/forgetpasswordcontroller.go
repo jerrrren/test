@@ -39,7 +39,7 @@ func sentResetEmail() gin.HandlerFunc {
 			return
 		}
 
-		token, err := auth.GeneratePasswordToken(foundUser.Password, foundUser.Name)
+		token, err := auth.GeneratePasswordToken (foundUser.Name,foundUser.Password)
 
 
 
