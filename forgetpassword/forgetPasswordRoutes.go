@@ -5,6 +5,6 @@ import (
 )
 
 func ForgetPasswordRoutes(incomingRoutes *gin.Engine) {
-	incomingRoutes.GET("email/sentResetEmail", sentResetEmail())
-	incomingRoutes.POST("resetPassword/reset/:token",resetPassword())
+	incomingRoutes.POST("email/sentResetEmail", sentResetEmail())
+	incomingRoutes.POST("resetPassword/reset",resetPassword())
 }

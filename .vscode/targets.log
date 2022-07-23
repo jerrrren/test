@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul 23 13:02:56 2022
+# Make data base, printed on Sat Jul 23 16:16:15 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ USERPROFILE = C:\Users\cheej
 # environment
 LOCALAPPDATA = C:\Users\cheej\AppData\Local
 # environment
-VSCODE_CWD = C:\Users\cheej\AppData\Local\Programs\Microsoft VS Code
+VSCODE_CWD = C:\WINDOWS\System32
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
@@ -39,7 +39,7 @@ GOPATH = C:\Users\cheej\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_18788_FSIBRXEWIWFSMOCI
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_26696_IAGUKMIRCEPIOQVA
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -87,7 +87,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 18788
+VSCODE_PID = 26696
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -211,9 +211,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1658474338): 21 files, no impossibilities.
+# . (key c:/Users/cheej/Desktop/New folder/test, mtime 1658552600): 22 files, no impossibilities.
 
-# 21 files, no impossibilities in 1 directories.
+# 22 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -261,15 +261,15 @@ postgres:
 
 # No 'vpath' search paths.
 
-# No g 
-eneral ('VPATH' variable) search path.
+# No general ('VPATH' variable) search pat 
+h.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 188 B / avg = 7 B
-# current buf: size = 8174 B / used = 188 B / count = 26 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 203 B / avg = 7 B
+# current buf: size = 8174 B / used = 203 B / count = 27 / avg = 7 B
 
-# strcache performance: lookups = 32 / hit rate = 18%
+# strcache performance: lookups = 33 / hit rate = 18%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Sat Jul 23 13:02:56 2022
+# Load=27/8192=0%, Rehash=0, Collisions=0/33=0%
+# Finished Make data base on Sat Jul 23 16:16:15 2022
 
  
