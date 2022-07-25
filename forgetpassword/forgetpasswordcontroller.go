@@ -50,7 +50,7 @@ func sentResetEmail() gin.HandlerFunc {
 		m := mail.NewMessage()
 
 		// Set E-Mail sender
-		m.SetHeader("From", "chee_jer_en@s2013.sst.edu.sg")
+		m.SetHeader("From", "intronusorbital@gmail.com")
 
 		m.SetHeader("To", foundUser.Email)
 
