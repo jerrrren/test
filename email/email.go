@@ -94,7 +94,7 @@ func sendVerificationMessage() gin.HandlerFunc {
 		m.SetBody("text/plain", "Please click the link below to verify your email\n"+"https://intronusfrontend.herokuapp.com/verifyemail/"+token)
 
 		// Settings for SMTP server
-		d := mail.NewDialer("smtp.gmail.com", 587, "chee_jer_en@s2013.sst.edu.sg", "edplfjwgcyunfdkt")
+		d := mail.NewDialer("smtp.gmail.com", 587, "intronusorbital@gmail.com", "icppswsxfkqtrfle")
 
 		// This is only needed when SSL/TLS certificate is not valid on server.
 		// In production this should be set to false.

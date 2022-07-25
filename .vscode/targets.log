@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul 23 16:16:15 2022
+# Make data base, printed on Mon Jul 25 09:42:16 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ USERPROFILE = C:\Users\cheej
 # environment
 LOCALAPPDATA = C:\Users\cheej\AppData\Local
 # environment
-VSCODE_CWD = C:\WINDOWS\System32
+VSCODE_CWD = C:\Users\cheej\AppData\Local\Programs\Microsoft VS Code
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
@@ -39,7 +39,7 @@ GOPATH = C:\Users\cheej\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_26696_IAGUKMIRCEPIOQVA
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11984_OVIBIFSCIYTJMJAM
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -87,7 +87,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 26696
+VSCODE_PID = 11984
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -261,8 +261,8 @@ postgres:
 
 # No 'vpath' search paths.
 
-# No general ('VPATH' variable) search pat 
-h.
+# No g 
+eneral ('VPATH' variable) search path.
 
 # strcache buffers: 1 (0) / strings = 27 / storage = 203 B / avg = 7 B
 # current buf: size = 8174 B / used = 203 B / count = 27 / avg = 7 B
@@ -270,6 +270,6 @@ h.
 # strcache performance: lookups = 33 / hit rate = 18%
 # hash-table stats:
 # Load=27/8192=0%, Rehash=0, Collisions=0/33=0%
-# Finished Make data base on Sat Jul 23 16:16:15 2022
+# Finished Make data base on Mon Jul 25 09:42:16 2022
 
  
