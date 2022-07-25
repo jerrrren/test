@@ -28,6 +28,7 @@ func checkIfPaired() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		user := new(Paireduser)
 		result := true
+		var partnerID int
 		
 		if err := c.Bind(user); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "error in binding name to user"})
@@ -39,9 +40,17 @@ func checkIfPaired() gin.HandlerFunc {
 				result = false
 			} else {
 				c.IndentedJSON(http.StatusNotFound, gin.H{"error": err.Error()})
+				return
 			}
 		}
-		c.IndentedJSON(http.StatusOK, gin.H{"message": result,"partner":user.Partner})
+		if (result) {
+			row := db.DB.QueryRow("SELECT uid FROM users where name=$1", user.Partner)
+			if err := row.Scan(&partnerID); err != nil {
+				c.IndentedJSON(http.StatusNotFound, gin.H{"error": err.Error()})
+				return
+			}
+		}
+		c.IndentedJSON(http.StatusOK, gin.H{"message": result,"partner":user.Partner, "partnerID": partnerID})
 	}
 }
 
