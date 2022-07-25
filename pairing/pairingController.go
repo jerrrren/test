@@ -120,9 +120,16 @@ func FillAndMatch() gin.HandlerFunc {
 				c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 				return
 			}
+			var partnerID int
+			row := db.DB.QueryRow("SELECT uid from users where name=$1", partner.Name)
+			if err := row.Scan(&partnerID); err != nil{
+				c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+				return
+			}
 			c.IndentedJSON(http.StatusOK, gin.H{
 				"result":  true,
 				"message": partner.Name,
+				"partnerID": partnerID,
 			})
 		} 
 	}

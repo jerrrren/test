@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jul 25 09:42:16 2022
+# Make data base, printed on Mon Jul 25 11:21:08 2022
 
 # Variables
 
@@ -39,7 +39,7 @@ GOPATH = C:\Users\cheej\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11984_OVIBIFSCIYTJMJAM
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_10072_ONQCLZROYWABKSSA
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -87,7 +87,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 11984
+VSCODE_PID = 10072
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -261,8 +261,7 @@ postgres:
 
 # No 'vpath' search paths.
 
-# No g 
-eneral ('VPATH' variable) search path.
+# No general ('VPATH' variable) search path.
 
 # strcache buffers: 1 (0) / strings = 27 / storage = 203 B / avg = 7 B
 # current buf: size = 8174 B / used = 203 B / count = 27 / avg = 7 B
@@ -270,6 +269,6 @@ eneral ('VPATH' variable) search path.
 # strcache performance: lookups = 33 / hit rate = 18%
 # hash-table stats:
 # Load=27/8192=0%, Rehash=0, Collisions=0/33=0%
-# Finished Make data base on Mon Jul 25 09:42:16 2022
+# Finished Make data base on Mon Jul 25 11:21:08 2022
 
  
