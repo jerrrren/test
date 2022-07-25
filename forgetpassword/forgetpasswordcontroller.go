@@ -61,7 +61,7 @@ func sentResetEmail() gin.HandlerFunc {
 		m.SetBody("text/plain", "Please click the link below to reset your password\n"+"https://intronusfrontend.herokuapp.com/updatepassword/"+token)
 
 		// Settings for SMTP server
-		d := mail.NewDialer("smtp.gmail.com", 587, "chee_jer_en@s2013.sst.edu.sg", "edplfjwgcyunfdkt")
+		d := mail.NewDialer("smtp.gmail.com", 587, "intronusorbital@gmail.com", "icppswsxfkqtrfle")
 
 		// This is only needed when SSL/TLS certificate is not valid on server.
 		// In production this should be set to false.
